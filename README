@@ -4,8 +4,14 @@ These are transitory scripts while I try to find something to handle my erlang
 hobby projects without using cumbersome building frameworks. You probably don't
 want to use this, but just in case:
 
+You're supposed to download this repository in a lib directory, where any other
+repositories containing erlang applications lie around. Once done, you have to
+cd into sept and run ./install.sh.
+
   * get_dirty.sh: peeks all the git repositories to make sure that all are
     committed (locally)
+  * install.sh: links all scripts in .. so that you can run them for the whole
+    project
   * make.sh: enter in all src files and run erlang -make like script to build
     the binaries
   * run.sh: fire a VM with the code path set to load from what we built
