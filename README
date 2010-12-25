@@ -1,0 +1,12 @@
+Stupid erlang project tools
+
+These are transitory scripts while I try to find something to handle my erlang
+hobby projects without using cumbersome building frameworks. You probably don't
+want to use this, but just in case:
+
+  * get_dirty.sh: peeks all the git repositories to make sure that all are
+    committed (locally)
+  * make.sh: enter in all src files and run erlang -make like script to build
+    the binaries
+  * run.sh: fire a VM with the code path set to load from what we built
+  * update.sh: pull in all git repositories
