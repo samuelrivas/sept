@@ -15,4 +15,3 @@ for i in `find $HOME -name 'src'`; do
     erl -eval 'case make:all([debug_info, {outdir, "../ebin"}]) of error -> halt(1); _ -> halt(0) end.' -noshell ${APPS}
     cd $HOME
 done
-
