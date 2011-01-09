@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Print the list of git repositories that have uncommited changes
 
 DIR=`dirname $0`
 PWD=`cd $DIR; pwd`

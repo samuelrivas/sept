@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Run erl -make in all erlang apps
 
 set -e
 
