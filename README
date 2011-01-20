@@ -10,8 +10,9 @@ cd into sept and run ./install.sh.
 
   * get_dirty.sh: peeks all the git repositories to make sure that all are
     committed (locally)
-  * get_dirty.sh: prints the list of git repositories that have changes that are
+  * get_ahead.sh: prints the list of git repositories that have changes that are
     not in upstream
+  * get_branch: prints the branch in which repository is
   * install.sh: links all scripts in .. so that you can run them for the whole
     project
   * make.sh: enter in all src files and run erlang -make like script to build
