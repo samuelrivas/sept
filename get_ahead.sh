@@ -10,7 +10,7 @@ for i in *; do
 	cd $i
 	RESULT=`git branch -v 2> /dev/null | grep ahead`
 	if [ ! -z "$RESULT" ]; then
-	    echo "AHEAD:$i";
+	    echo "\033[31mAHEAD\033[0m $i";
 	fi
 	cd ..
     fi
