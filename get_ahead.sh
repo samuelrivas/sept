@@ -8,7 +8,7 @@ cd $PWD
 for i in *; do
     if [ -d $i ]; then
 	cd $i
-	RESULT=`git branch -v | grep ahead`
+	RESULT=`git branch -v 2> /dev/null | grep ahead`
 	if [ ! -z "$RESULT" ]; then
 	    echo "AHEAD:$i";
 	fi
