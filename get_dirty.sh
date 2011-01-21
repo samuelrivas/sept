@@ -8,7 +8,7 @@ cd $PWD
 for i in *; do
     if [ -d $i ]; then
 	cd $i
-	RESULT=`git status --porcelain | grep -v '^??'`
+	RESULT=`git status --porcelain 2> /dev/null | grep -v '^??'`
 	if [ ! -z "$RESULT" ]; then
 	    echo "DIRTY:$i";
 	fi
