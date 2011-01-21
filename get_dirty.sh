@@ -10,7 +10,7 @@ for i in *; do
 	cd $i
 	RESULT=`git status --porcelain 2> /dev/null | grep -v '^??'`
 	if [ ! -z "$RESULT" ]; then
-	    echo "DIRTY:$i";
+	    echo "\033[31mDIRTY\033[0m $i";
 	fi
 	cd ..
     fi
