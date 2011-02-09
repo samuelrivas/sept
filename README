@@ -16,6 +16,7 @@ cd into sept and run ./install.sh.
   * install.sh: links all scripts in .. so that you can run them for the whole
     project
   * make.sh: enter in all src files and run erlang -make like script to build
-    the binaries
+    the binaries. You can also pass a directory as first argument and will make
+    only that director (much faster)
   * run.sh: fire a VM with the code path set to load from what we built
   * update.sh: pull in all git repositories
