@@ -1,5 +1,7 @@
 #!/bin/sh
 
-for i in *.sh; do
-    ln -fs $PWD/$i ..
+HOME=$PWD/`dirname $0`
+
+for i in $HOME/*.sh; do
+    ln -fs $i $HOME/..
 done
