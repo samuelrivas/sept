@@ -1,5 +1,5 @@
 #!/bin/sh
 
 for i in *.sh; do
-    ln -s $PWD/$i ..
+    ln -fs $PWD/$i ..
 done
