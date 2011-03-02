@@ -6,11 +6,6 @@ set -e
 
 HOME=$PWD/`dirname $0`
 
-APPS=
-for i in `find $HOME -name ebin`; do
-    APPS="${APPS} -pa $i";
-done
-
 if [ -z "$1" ]; then
     DIRS=`find $HOME -name 'src'`;
 else
@@ -20,6 +15,8 @@ fi
 for i in $DIRS; do
     cd $i
     echo "Making `dirname $i | xargs basename`"
-    erl -eval 'case make:all([debug_info, {outdir, "../ebin"}]) of error -> halt(1); _ -> halt(0) end.' -noshell ${APPS}
+    ERL_LIBS=$HOME:$ERL_LIBS erl -eval \
+	'case make:all([debug_info, {outdir, "../ebin"}]) of error -> halt(1); _ -> halt(0) end.' \
+	-noshell
     cd $HOME
 done
