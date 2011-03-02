@@ -14,7 +14,8 @@ fi
 
 for i in $DIRS; do
     cd $i
-    echo "Making `dirname $i | xargs basename`"
+    echo
+    echo "\033[32mMaking `dirname $i | xargs basename`\033[0m"
     ERL_LIBS=$HOME:$ERL_LIBS erl -eval \
 	'case make:all([debug_info, {outdir, "../ebin"}]) of error -> halt(1); _ -> halt(0) end.' \
 	-noshell
