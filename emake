@@ -1,0 +1,20 @@
+#!/usr/bin/env escript
+%% -*- Mode: erlang -*-
+
+main(Dirs) ->
+    lists:foreach(
+      fun(Dir) ->
+              make(Dir)
+      end,
+      Dirs).
+
+make(Dir) ->
+    io:format("~n\033[32mEmaking ~s\033[0m~n", [Dir]),
+    ok = file:set_cwd(Dir),
+    case make:all([debug_info]) of
+        error -> halt(1);
+        _ -> ok
+    end.
+
+
+
