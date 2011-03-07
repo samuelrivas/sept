@@ -15,6 +15,3 @@ make(Dir) ->
         error -> halt(1);
         _ -> ok
     end.
-
-
-
