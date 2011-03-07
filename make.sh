@@ -7,7 +7,7 @@ set -e
 HOME=$PWD/`dirname $0`
 
 if [ -z "$1" ]; then
-    DIRS=`find $HOME -name 'src'`;
+    DIRS=`find $HOME -name 'Emakefile' -exec dirname '{}' \;`;
 else
     DIRS="$1/src";
 fi
@@ -15,7 +15,7 @@ fi
 for i in $DIRS; do
     cd $i
     echo
-    echo "\033[32mMaking `dirname $i | xargs basename`\033[0m"
+    echo "\033[32mMaking `readlink -m $i`\033[0m"
     ERL_LIBS=$HOME:$ERL_LIBS erl -eval \
 	'case make:all([debug_info, {outdir, "../ebin"}]) of error -> halt(1); _ -> halt(0) end.' \
 	-noshell
