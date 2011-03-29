@@ -7,7 +7,7 @@ set -e
 HOME=$PWD/`dirname $0`
 
 if [ -z "$1" ]; then
-    DIRS=`find $HOME -name 'Emakefile' -exec readlink -m '{}'/.. \;`;
+    DIRS=`find $HOME -maxdepth 2 -name 'src' -exec readlink -m '{}' \;`;
 else
     DIRS="$1/src";
 fi

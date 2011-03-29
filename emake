@@ -11,7 +11,7 @@ main(Dirs) ->
 make(Dir) ->
     io:format("~n\033[32mEmaking ~s\033[0m~n", [Dir]),
     ok = file:set_cwd(Dir),
-    case make:all([debug_info]) of
+    case make:all([debug_info, {outdir, "../ebin"}]) of
         error -> halt(1);
         _ -> ok
     end.
