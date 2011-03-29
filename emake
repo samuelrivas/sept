@@ -2,11 +2,7 @@
 %% -*- Mode: erlang -*-
 
 main(Dirs) ->
-    lists:foreach(
-      fun(Dir) ->
-              make(Dir)
-      end,
-      Dirs).
+    lists:foreach(fun(Dir) -> make(Dir) end, Dirs).
 
 make(Dir) ->
     io:format("~n\033[32mEmaking ~s\033[0m~n", [Dir]),
