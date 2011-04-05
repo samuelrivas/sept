@@ -4,12 +4,12 @@
 
 set -e
 
-HOME=$PWD/`dirname $0`
+SEPT_HOME=$PWD/`dirname $0`
 
 if [ -z "$1" ]; then
-    DIRS=`find $HOME -maxdepth 2 -name 'src' -exec readlink -m '{}' \;`;
+    DIRS=`find $SEPT_HOME -maxdepth 2 -name 'src' -exec readlink -m '{}' \;`;
 else
     DIRS="$1/src";
 fi
 
-ERL_LIBS=$HOME:$ERL_LIBS $HOME/sept/emake $DIRS
+ERL_LIBS=$SEPT_HOME:$ERL_LIBS $SEPT_HOME/sept/emake $DIRS
