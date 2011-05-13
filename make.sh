@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Run an escript similar to erl -make everywhere an Emakefile is found
+# Run an escript similar to erl -make in every xxx/src directory
 
 set -e
 
