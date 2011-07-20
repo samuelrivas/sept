@@ -19,6 +19,12 @@ cd $APP
 VERSION=`git describe --always --tag`
 TARNAME="$APP-$VERSION"
 
-tar cfj ../$TARNAME.tar.bz2 --exclude .git --exclude "*~" --transform "s,^,$TARNAME/," *
+# git show --oneline doesn't seem to be working, so we use git log to annotate
+# the downloaded version
+git log --oneline | head -n1 > GIT_VERSION
+
+tar cfj ../$TARNAME.tar.bz2 --exclude .git --exclude "*~" --transform "s,^,$APP/," *
+
+rm GIT_VERSION
 
 echo "Created $TARNAME.tar.bz2"
