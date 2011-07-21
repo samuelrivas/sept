@@ -23,7 +23,7 @@ TARNAME="$APP-$VERSION"
 # the downloaded version
 git log --oneline | head -n1 > GIT_VERSION
 
-tar cfj ../$TARNAME.tar.bz2 --exclude .git --exclude "*~" --transform "s,^,$APP/," *
+tar cfj ../$TARNAME.tar.bz2 --exclude .git --exclude "*~" --transform "s,^,$APP/,S" *
 
 rm GIT_VERSION
 
