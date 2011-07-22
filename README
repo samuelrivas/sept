@@ -6,21 +6,21 @@ want to use this, but just in case:
 
 You're supposed to download this repository in a lib directory, where any other
 repositories containing erlang applications lie around. Once done, you have to
-cd into sept and run ./install.sh.
+run sept/install.sh.
 
   * get_dirty.sh: peeks all the git repositories to make sure that all are
     committed (locally)
-  * get_ahead.sh: prints the list of git repositories that have changes that are
+  * get_ahead.sh: prints the list of git repositories with changes that are
     not in upstream
   * get_svn_ahead.sh: prints the list of git repositories that have changes that
-    are not in the svn upstream
-  * get_branch: prints the branch in which repository is
-  * install.sh: links all scripts in .. so that you can run them for the whole
-    project
+    are not in svn upstream (in case you use git-svn)
+  * get_branch: prints the branch in which each repository is
+  * install.sh: links all scripts in sept/.. with absolute paths, so that you can run
+    them for the whole project and from any directory
   * make.sh: enter in all src files and run erlang -make like script to build
     the binaries. You can also pass a directory as first argument and will make
-    only that director (much faster)
+    only that directory (much faster)
   * run.sh: fire a VM with the code path set to load from what we built
   * update.sh: pull in all git repositories
   * tarball.sh: create a distributable tarball for a single application, adding
-    the git version to the name
+    the git version in a file called GIT_VERSION for the record
