@@ -1,7 +1,7 @@
 #!/bin/sh
 
-HOME=$PWD/`dirname $0`
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 
-for i in $HOME/*.sh; do
-    ln -fs $i $HOME/..
+for i in $DIR/*.sh; do
+    ln -fs $i $DIR/..
 done
