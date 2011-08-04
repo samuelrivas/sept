@@ -9,7 +9,7 @@ SEPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
 if [ -z "$1" ]; then
     DIRS=`find $SEPT_HOME -maxdepth 2 -name 'src' -exec readlink -m '{}' \;`;
 else
-    DIRS="$1/src";
+    DIRS="$@";
 fi
 
 ERL_LIBS=$SEPT_HOME:$ERL_LIBS $SEPT_HOME/sept/emake $DIRS
