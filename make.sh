@@ -4,7 +4,7 @@
 
 set -e
 
-SEPT_HOME=$PWD/`dirname $0`
+SEPT_HOME="$( cd "$( dirname "$0" )" && pwd )"
 
 if [ -z "$1" ]; then
     DIRS=`find $SEPT_HOME -maxdepth 2 -name 'src' -exec readlink -m '{}' \;`;
