@@ -8,7 +8,16 @@ make(Dir) ->
     io:format("~n\033[32mEmaking ~s\033[0m~n", [Dir]),
     {ok, CurDir} = file:get_cwd(),
     ok = file:set_cwd(Dir),
-    case make:all([debug_info, {i, "../include"}, {outdir, "../ebin"}]) of
+    case make:all(get_options()) of
         error -> halt(1);
         _ -> file:set_cwd(CurDir)
     end.
+
+get_options() ->
+    Strict = case os:getenv("EMAKE_STRICT") of
+                 false ->
+                     [];
+                 _ ->
+                     [warnings_as_errors]
+             end,
+    [debug_info, {i, "../include"}, {outdir, "../ebin"} | Strict].
