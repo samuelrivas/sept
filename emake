@@ -5,7 +5,7 @@ main(Dirs) ->
     lists:foreach(fun(Dir) -> make(Dir) end, Dirs).
 
 make(Dir) ->
-    io:format("~n\033[32mEmaking ~s\033[0m~n", [Dir]),
+    io:format("~n\033[32mEmaking ~s~s\033[0m~n", [strict_string(), Dir]),
     {ok, CurDir} = file:get_cwd(),
     ok = file:set_cwd(Dir),
     case make:all(get_options()) of
@@ -13,11 +13,20 @@ make(Dir) ->
         _ -> file:set_cwd(CurDir)
     end.
 
+strict() -> "true" =:= os:getenv("EMAKE_STRICT").
+
 get_options() ->
-    Strict = case os:getenv("EMAKE_STRICT") of
-                 false ->
-                     [];
-                 _ ->
-                     [warnings_as_errors]
-             end,
+    Strict =
+        case strict() of
+            true ->
+                [warnings_as_errors];
+            false ->
+                []
+        end,
     [debug_info, {i, "../include"}, {outdir, "../ebin"} | Strict].
+
+strict_string() ->
+    case strict() of
+        true -> "(strict) ";
+        false -> ""
+    end.

@@ -3,8 +3,8 @@
 # Run an escript similar to erl -make in every xxx/src directory or every
 # directory passed as argument
 #
-# If the environment variable EMAKE_STRICT is set, warnings are treated as
-# errors
+# If the environment variable EMAKE_STRICT is set to true, warnings are treated
+# as errors
 
 set -e
 
