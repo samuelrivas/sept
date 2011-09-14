@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Create a tarball to distribute an application
+# Create a tarball to distribute an application (including compiled binaries)
 
 set -e
 
