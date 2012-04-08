@@ -21,6 +21,8 @@ run sept/install.sh.
     the binaries. You can also pass a directory as first argument and will make
     only that directory (much faster)
   * run.sh: fire a VM with the code path set to load from what we built
+  * erl-edit.sh: fire an emacs with the code path set so that flymake actually
+    flies (otherwise it would report errors in include_libs)
   * update.sh: pull in all git repositories
   * tarball.sh: create a distributable tarball for a single application, adding
     the git version in a file called GIT_VERSION for the record
