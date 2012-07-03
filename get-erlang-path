@@ -1,0 +1,34 @@
+#!/usr/bin/env escript
+%% -*- Mode: erlang -*-
+%%
+%% This is used by dialyzer-update-plt.sh to get the paths to analyse
+
+main(IgnoreRegexps) ->
+    AllPaths = code:get_path(),
+    FilteredPaths = filter_out(default_ignores() ++ IgnoreRegexps, AllPaths),
+    lists:foreach(
+      fun (Path) -> io:format("~s~n", [Path]) end,
+      FilteredPaths).
+
+filter_out(IgnoreRegexps, Paths) ->
+    Chain = [compile_regexp(Regexp) || Regexp <- IgnoreRegexps],
+    lists:filter(fun(Path) -> not match_any(Chain, Path) end, Paths).
+
+compile_regexp(String) ->
+    case re:compile(String) of
+        {ok, Re} -> Re;
+        {error, Reason} -> throw(Reason)
+    end.
+
+match_any([], _String) -> false;
+match_any([H|T], String) ->
+    case re:run(String, H) of
+        {match, _} -> true;
+        nomatch -> match_any(T, String)
+    end.
+
+default_ignores() ->
+    ["^\.$"
+     , "/eqc.*/"
+     , "/pulse.*/"
+    ].

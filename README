@@ -26,3 +26,5 @@ run sept/install.sh.
   * update.sh: pull in all git repositories
   * tarball.sh: create a distributable tarball for a single application, adding
     the git version in a file called GIT_VERSION for the record
+  * dialyzer-update-plt.sh updates sept plt with last changes in the code. It
+    will create a new plt the first time it's called (that will hurt a bit)
